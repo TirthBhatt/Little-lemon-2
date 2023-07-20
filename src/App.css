@@ -1,0 +1,300 @@
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../src/Fonts/NotoSans-Light.woff2") format("woff2"), url("../src/Fonts/NotoSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Noto Sans" !important;
+}
+
+.content {
+  padding-left: 70px;
+  padding-right: 70px;
+  width: 100%;
+}
+
+header {
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .logo {
+  height: 100px;
+  width: auto;
+}
+header a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+header div {
+  margin-left: auto;
+}
+header div a:hover {
+  background-color: #f4ce14;
+  cursor: pointer;
+  height: 40px;
+  color: white;
+}
+header div a:active {
+  background-color: #333333;
+  color: white;
+}
+
+.Panel.one {
+  height: 600px;
+  background-color: #495e57;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+  width: auto !important;
+}
+.Panel.one .TextOne .lgtext {
+  color: #f4ce14;
+  font-size: 90px;
+  line-height: normal;
+  font-weight: 700;
+}
+.Panel.one .TextOne .city {
+  line-height: normal;
+  font-size: 60px;
+  color: white;
+  font-weight: 450;
+}
+.Panel.one .TextOne p:nth-child(3) {
+  margin-top: 20px;
+  width: 500px;
+  text-align: justify;
+  font-size: 28px;
+  color: white;
+  font-weight: 400;
+}
+.Panel.one .TextOne .PrimaryBtn {
+  background-color: #f4ce14;
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: 800;
+  outline: none;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  font-family: "Noto Sans";
+  margin-top: 20px;
+}
+.Panel.one .TextOne .PrimaryBtn:active {
+  width: 320px;
+  height: 70px;
+}
+.Panel.one div {
+  align-items: end;
+}
+.Panel.one div img {
+  width: 650px;
+  height: 600px;
+  position: absolute;
+  border-radius: 30px;
+  margin-top: 100px;
+  right: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.PrimaryBtn {
+  background-color: #f4ce14;
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: 800;
+  outline: none;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  font-family: "Noto Sans";
+  border-radius: 15px;
+  color: white;
+}
+
+.Panel.two {
+  margin-top: 200px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.Panel.two h3 {
+  color: #495e57;
+  font-weight: 600;
+  font-size: 40px;
+}
+.Panel.two .specials {
+  display: flex;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: #edefee;
+  margin: 20px;
+  margin-bottom: 50px;
+  padding: 0;
+  color: black;
+}
+.Panel.two .specials img {
+  height: 300px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: inherit;
+}
+.Panel.two .specials img:hover {
+  animation-name: zoomIn;
+  animation-duration: 0.5s;
+  animation-duration: var(--animate-duration);
+  animation-fill-mode: both;
+}
+.Panel.two .specials div p {
+  font-weight: 600;
+  font-size: 28px;
+}
+.Panel.two .specials p {
+  font-size: 25px;
+  font-weight: 600;
+}
+.Panel.two .specials a {
+  color: #333333;
+  font-size: 25px;
+  font-weight: 900;
+  width: 100%;
+  text-decoration: none;
+  padding-left: 24px;
+  cursor: pointer;
+}
+.Panel.two .specials a img {
+  height: 50px;
+  width: 50px;
+}
+
+.panel.three {
+  background-color: #495e57;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.panel.three .feedbk {
+  background-color: white;
+  border-radius: 16px;
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+  width: 350px !important;
+}
+.panel.three .feedbk h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333333;
+  margin: 5px;
+}
+.panel.three .feedbk p {
+  font-size: 23px;
+  color: #333333;
+  text-align: justify;
+  font-weight: 700;
+}
+.panel.three .feedbk img {
+  border-radius: 50%;
+  width: 250px;
+  height: auto;
+  margin-top: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.panel.three .feedbk .star {
+  height: 40px;
+  width: 40px;
+}
+.panel.three .feedbk .checked {
+  color: #f4ce14 !important;
+}
+
+.panel.four .lgtext {
+  color: #f4ce14;
+  font-size: 90px;
+  line-height: normal;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+.panel.four .city {
+  line-height: normal;
+  font-size: 60px;
+  color: #333333;
+  font-weight: 450;
+  text-align: center;
+}
+.panel.four img {
+  height: 400px;
+  width: auto;
+  margin: 20px;
+  border-radius: 15%;
+}
+.panel.four .text {
+  font-size: 26px;
+  color: #333333;
+  font-weight: 500;
+  text-align: justify;
+}
+.panel.four div div {
+  margin: 30px;
+}
+
+footer {
+  background-color: #495e57;
+  color: #edefee;
+}
+footer .ftr {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+footer .ftr img {
+  width: 200px;
+  height: auto;
+}
+footer .ftr h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+footer .ftr a {
+  text-decoration: none !important;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+footer .ftr ul {
+  padding: 0%;
+}
+footer .ftr li {
+  text-decoration: none !important;
+  symbols: none;
+  list-style-type: none;
+  color: #edefee;
+}
+footer .ftr h3 {
+  margin-bottom: 20px;
+}
+footer .ftr p {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+footer .ftr svg {
+  height: 30px !important;
+  width: 30px !important;
+  margin-right: 20px;
+}
+footer .ftr div {
+  padding: 20px;
+}/*# sourceMappingURL=App.css.map */
