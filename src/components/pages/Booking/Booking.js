@@ -1,140 +1,114 @@
+import React from 'react';
+import { useForm } from 'react-hook-form'; 
 
-import { useState } from 'react';
-import FormField from './FormField'
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup";
+import Dialog from '@mui/material/Dialog'
+import DialogContentText from "@mui/material/DialogContentText"
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import Button from "@mui/material/Button";
 
-function Booking(dispatchOnDateChange,submitData,availableTimes){
+
+const schema = yup.object({
+    name: yup.string().required("Full name is a required field!"),
+    email: yup.string().required("Email is a required field!").email("Email is not valid!"),
+    telephone: yup.string().required("Telephone is a required field!").matches(/^[6-9]\d{9}$/, "Phone number must match the form 911"),
+    guests: yup.number().min(1, "There must be at least 1 guest!").required("Please specify number of guests per table!"),
+    date: yup.string().required("Please select date and time!"),
+})
+
+function Form() {
 
 
-     
-    
-    const minimumDate = new Date().toISOString().split('T')[0 ];
-  const defaultTime = availableTimes[0];
+    const { handleSubmit, register, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+        
 
-  const minimumNumberOfGuests = 1;
-  const maximumNumberOfGuests = 10;
-  const occasions = ['Birthday', 'Anniversary'];
-  const invalidDateErrorMessage = 'Please choose a valid date';
-  const invalidTimeErrorMessage = 'Please choose a valid time';
-  const invalidOccasionErrorMessage = 'Please choose a valid occasion';
-  const invalidNumberOfGuestsErrorMessage = 
-    'Please enter a number between 1 and 10';
 
-  const [date, setDate] = useState(minimumDate);
-  const [time, setTime] = useState(defaultTime);
-  const [
-    numberOfGuests, 
-    setNumberGuests
-  ] = useState(minimumNumberOfGuests);
-  const [occasion, setOccasion] = useState(occasions[0]);
 
-  const isDateValid = () => date !== '';
-  const isTimeValid = () => time !== '';
-  const isNumberOfGuestsValid = () => numberOfGuests !== '';
-  const isOccasionValid = () => occasion !== '';
+    })
 
-  const areAllFieldsValid = () => 
-    isDateValid() 
-    && isTimeValid() 
-    && isNumberOfGuestsValid() 
-    && isOccasionValid();
-  
-  const handleDateChange = e => {
-    setDate(e.target.value);
-    dispatchOnDateChange(e.target.value);
-  };
+    console.log(errors)
+    const submitDisabled=false;
+    const formSubmit = (data) => {
+        console.table(data)
+        submitDisabled=true;
 
-  const handleTimeChange = e => setTime(e.target.value);
+    }
+    const [open, setOpen] = React.useState(false);
+ 
+    const handleClickToOpen = () => {
+        setOpen(true);
+    };
+    const handleToClose = () => {
+        setOpen(false);
+    };
+    return (
+        <div className='BookingForm'>
+                 <form onSubmit={handleSubmit(formSubmit)}>
+                 <fieldset>
+                <div className="field row">
+                    <label htmlFor="name" className=' col-6'>Full Name</label>
+                    <input type="text" placeholder="John Doe" name="name" {...register("name")} />
+                    <span className="error-message">{errors.name?.message}</span>
+                </div>
+                <div className="field row">
+                    <label htmlFor="email" className=' col-6'>Email</label>
+                    <input type="text" placeholder="text@email.com" name="email" {...register("email")}/>
+                    <span className="error-message">{errors.email?.message}</span>
+                </div>
+                <div className="field row">
+                    <label htmlFor="telephone" className=' col-6'>Telephone</label>
+                    <input type="tel" placeholder="233 00 000 0000" name="telephone" {...register("telephone")}/>
+                    <span className="error-message">{errors.telephone?.message}</span>
+                </div>
 
-  const handleFormSubmit = e => {
-    e.preventDefault();
-    submitData({ date, time, numberOfGuests, occasion, });
-  };
- return(
-<>
-<form onSubmit={handleFormSubmit}>
-      <FormField 
-        label="Date" 
-        htmlFor="booking-date" 
-        hasError={!isDateValid()} 
-        errorMessage={invalidDateErrorMessage}
-      >
-        <input 
-          type="date" 
-          id="booking-date" 
-          name="booking-date" 
-          min={minimumDate} 
-          value={date} 
-          required={true} 
-          onChange={handleDateChange}
-        />
-      </FormField>
-      <FormField 
-        label="Time" 
-        htmlFor="booking-time" 
-        hasError={!isTimeValid()} 
-        errorMessage={invalidTimeErrorMessage}
-      >
-        <select 
-          id="booking-time" 
-          name="booking-time" 
-          value={time} 
-          required={true} 
-          onChange={handleTimeChange}
-        >
-          {availableTimes.map(times => 
-            <option data-testid="booking-time-option" key={times}>
-              {times}
-            </option>
-          )}
-        </select>
-      </FormField>
-      <FormField 
-        label="Number of guests" 
-        htmlFor="booking-number-guests" 
-        hasError={!isNumberOfGuestsValid()} 
-        errorMessage={invalidNumberOfGuestsErrorMessage}
-      >
-        <input 
-          type="number" 
-          id="booking-number-guests" 
-          name="booking-number-guests" 
-          value={numberOfGuests} 
-          min={minimumNumberOfGuests} 
-          max={maximumNumberOfGuests} 
-          required={true} 
-          onChange={e => setNumberGuests(e.target.value)}
-        />
-      </FormField>
-      <FormField 
-        label="Occasion" 
-        htmlFor="booking-occasion" 
-        hasError={!isOccasionValid()} 
-        errorMessage={invalidOccasionErrorMessage}
-      >
-        <select 
-          id="booking-occasion" 
-          name="booking-occasion" 
-          value={occasion} 
-          required={true} 
-          onChange={e => setOccasion(e.target.value)}
-        >
-          {occasions.map(occasion => 
-            <option data-testid="booking-occasion-option" key={occasion}>
-              {occasion}
-            </option>
-          )}
-        </select>
-      </FormField>
-      <button 
-        className="button-primary" 
-        type="submit" 
-        disabled={!areAllFieldsValid()}
-      >
-        Make your reservation
-      </button>
-    </form>
-</>
-  );
-
+                {/*<div className="guestsdate">*/}
+                <div className="field occasion row">
+                    <label htmlFor="occasion d" className=' col-6'>Occasion (optional)</label>
+                    <div className="options col-5">
+                        <select name="occasion" {...register("occasion")}>
+                            <option value="select">Select occasion</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="engagement">Engagement</option>
+                            <option value="anniversary">Anniversary</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="field guest row">
+                    <label htmlFor="guests" className=' col-6'>Guests</label>
+                    <input type="number" placeholder="2" name="guests" {...register("guests")}/> 
+                    <span className="error-message">{errors.guests?.message}</span>
+                </div>
+                {/*</div>*/}
+                        
+                <div className="field row">
+                    <label htmlFor="date" className=' col-6'>Date & Time</label>
+                    <input type="datetime-local" name="date" {...register("date")} />
+                    <span className="error-message">{errors.date?.message}</span>
+                </div>
+                <button className="reserve-btn m-5" type="submit" onClick={handleClickToOpen} disabled='true'>Reserve</button>
+                <Dialog open={open} onClose={handleToClose}>
+                <DialogTitle>{"How are you?"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        I am Good, Hope the same for you!
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleToClose}
+                        color="primary" autoFocus>
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+            </fieldset>
+        </form>
+        </div>
+       
+  )
 }
-export default Booking;
+
+export default Form

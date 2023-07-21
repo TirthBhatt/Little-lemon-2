@@ -297,4 +297,56 @@ footer .ftr svg {
 }
 footer .ftr div {
   padding: 20px;
+}
+
+.BookingForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.BookingForm form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.BookingForm label {
+  margin-right: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.BookingForm input {
+  width: 300px;
+  height: 50px;
+}
+.BookingForm select {
+  height: 40px;
+  margin-left: 200px;
+  font-size: 25px;
+}
+.BookingForm div {
+  width: 100%;
+  margin: 30px;
+}
+.BookingForm button {
+  margin: auto;
+  background-color: #f4ce14;
+  font-size: 35px;
+  font-weight: 700;
+  color: white;
+  border-radius: 18px;
+  border: none;
+  height: 60px;
+  margin-bottom: 40px;
+  width: 400px;
+  margin: auto;
+}
+.BookingForm fieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.BookingForm .options {
+  width: -moz-fit-content;
+  width: fit-content;
 }/*# sourceMappingURL=App.css.map */

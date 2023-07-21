@@ -348,3 +348,59 @@ footer{
 
 }
 
+
+.BookingForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+     }
+    label{
+       
+        margin-right: 20px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    input{
+        width: 300px;
+        height: 50px;
+       
+    }
+    select{
+        height: 40px;
+        margin-left: 200px;
+        font-size: 25px;
+
+    }
+    div{
+        width: 100%;
+        margin: 30px;
+    }
+    button{
+        margin: auto;
+        background-color: #f4ce14;
+        font-size: 35px;
+        font-weight: 700;
+        color: white;
+        border-radius: 18px;
+        border: none;
+        height: 60px;
+        margin-bottom: 40px;
+        width: 400px;
+        margin: auto;
+    }
+
+    fieldset{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    }
+    .options{
+        width: fit-content;
+    }
+}
