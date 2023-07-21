@@ -3,12 +3,11 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup";
-import Dialog from '@mui/material/Dialog'
-import DialogContentText from "@mui/material/DialogContentText"
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom';
+
+
+import Cmf from "../Booking/ConfirmBooking"
+import { useNavigate } from 'react-router-dom';
 
 
 const schema = yup.object({
@@ -20,7 +19,7 @@ const schema = yup.object({
 })
 
 function Form() {
-
+    const navigate = useNavigate();
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -31,20 +30,12 @@ function Form() {
     })
 
     console.log(errors)
-    const submitDisabled=false;
+    
     const formSubmit = (data) => {
         console.table(data)
-        submitDisabled=true;
-
+        navigate('/Cmfbooking')
     }
-    const [open, setOpen] = React.useState(false);
- 
-    const handleClickToOpen = () => {
-        setOpen(true);
-    };
-    const handleToClose = () => {
-        setOpen(false);
-    };
+    
     return (
         <div className='BookingForm'>
                  <form onSubmit={handleSubmit(formSubmit)}>
@@ -89,21 +80,8 @@ function Form() {
                     <input type="datetime-local" name="date" {...register("date")} />
                     <span className="error-message">{errors.date?.message}</span>
                 </div>
-                <button className="reserve-btn m-5" type="submit" onClick={handleClickToOpen} disabled='true'>Reserve</button>
-                <Dialog open={open} onClose={handleToClose}>
-                <DialogTitle>{"How are you?"}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        I am Good, Hope the same for you!
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleToClose}
-                        color="primary" autoFocus>
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
+                <button className="reserve-btn m-5" type="submit" >Reserve</button>
+               
             </fieldset>
         </form>
         </div>

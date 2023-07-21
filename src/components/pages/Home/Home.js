@@ -39,7 +39,7 @@ export default function Home(){
                <h3 className="col-9">This week specials !...</h3>
                <button className="PrimaryBtn col-2 "> Online Menu</button>
            </div>
-           <div className="row">
+           <div className="row d-flex justify-content-center align-items-center">
                <div className="specials col ">
                    
                    <img src={salad1} className="m-0 p-0D"></img>
@@ -85,7 +85,7 @@ export default function Home(){
                </div>
            </div>
        </div>
-       <div className=" panel three">
+       <div className="Panel three">
 
            <div className="row container-fluid content d-flex justify-content-center align-items-center">
                <div className="feedbk  m-4 d-flex justify-content-center align-items-center flex-column">
@@ -153,7 +153,7 @@ export default function Home(){
                
            </div>
        </div>
-       <div className='panel four'>
+       <div className='Panel four'>
            <div className=' container-fluid content'>
            <p className="lgtext ">Littel Lemon</p>
            <p className="city">Chicago</p>

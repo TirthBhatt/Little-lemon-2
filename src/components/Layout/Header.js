@@ -1,11 +1,12 @@
-import {Route, Link, Routes} from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import lg from './Assets/Logo.svg';
-import  Bokking from  "../pages/Booking/Booking"
-import  Underc from '../pages/UnderConstruction/underConstruction'
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
-import Main from '../pages/Home/Home'
+import { useState } from 'react';
 
-function header(){
+const Header=()=>{
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
     return(
        
  <header>
@@ -36,7 +37,9 @@ function header(){
                    
                       
                     </a>
-                    
+                    <div className="hamburger" onClick = {handleClick}>
+            {click ? (<AiOutlineClose size={20} style={{ color: "#333333"}}/>) : (<AiOutlineMenu size={30} style={{ color: "#333333", borderLeft: "1px solid #333333", paddingLeft: "10px", height: "20px"}}/>)}  
+        </div>
                       
                        
                        
@@ -57,4 +60,4 @@ function header(){
 
 
 
- export default header;
+ export default Header;

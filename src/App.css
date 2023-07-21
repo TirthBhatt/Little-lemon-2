@@ -7,6 +7,9 @@
 }
 body {
   font-family: "Noto Sans" !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -20,6 +23,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+header .hamburger, header .close-hamburger {
+  display: none;
 }
 header .logo {
   height: 100px;
@@ -46,6 +52,10 @@ header div a:active {
   color: white;
 }
 
+.Panel {
+  width: 1899px;
+}
+
 .Panel.one {
   height: 600px;
   background-color: #495e57;
@@ -54,7 +64,7 @@ header div a:active {
   margin-right: 20px;
   padding-left: 200px;
   padding-right: 200px;
-  width: auto !important;
+  width: 1850px;
 }
 .Panel.one .TextOne .lgtext {
   color: #f4ce14;
@@ -101,7 +111,6 @@ header div a:active {
   position: absolute;
   border-radius: 30px;
   margin-top: 100px;
-  right: 220px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -132,6 +141,7 @@ header div a:active {
 }
 .Panel.two .specials {
   display: flex;
+  width: 465px !important;
   align-items: center;
   height: -moz-fit-content;
   height: fit-content;
@@ -178,31 +188,31 @@ header div a:active {
   width: 50px;
 }
 
-.panel.three {
+.Panel.three {
   background-color: #495e57;
   height: -moz-fit-content;
   height: fit-content;
 }
-.panel.three .feedbk {
+.Panel.three .feedbk {
   background-color: white;
   border-radius: 16px;
   margin-top: 100px !important;
   margin-bottom: 100px !important;
   width: 350px !important;
 }
-.panel.three .feedbk h3 {
+.Panel.three .feedbk h3 {
   font-size: 28px;
   font-weight: 600;
   color: #333333;
   margin: 5px;
 }
-.panel.three .feedbk p {
+.Panel.three .feedbk p {
   font-size: 23px;
   color: #333333;
   text-align: justify;
   font-weight: 700;
 }
-.panel.three .feedbk img {
+.Panel.three .feedbk img {
   border-radius: 50%;
   width: 250px;
   height: auto;
@@ -210,15 +220,15 @@ header div a:active {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.panel.three .feedbk .star {
+.Panel.three .feedbk .star {
   height: 40px;
   width: 40px;
 }
-.panel.three .feedbk .checked {
+.Panel.three .feedbk .checked {
   color: #f4ce14 !important;
 }
 
-.panel.four .lgtext {
+.Panel.four .lgtext {
   color: #f4ce14;
   font-size: 90px;
   line-height: normal;
@@ -227,26 +237,26 @@ header div a:active {
   text-align: center;
   margin-top: 40px;
 }
-.panel.four .city {
+.Panel.four .city {
   line-height: normal;
   font-size: 60px;
   color: #333333;
   font-weight: 450;
   text-align: center;
 }
-.panel.four img {
+.Panel.four img {
   height: 400px;
   width: auto;
   margin: 20px;
   border-radius: 15%;
 }
-.panel.four .text {
+.Panel.four .text {
   font-size: 26px;
   color: #333333;
   font-weight: 500;
   text-align: justify;
 }
-.panel.four div div {
+.Panel.four div div {
   margin: 30px;
 }
 
@@ -349,4 +359,57 @@ footer .ftr div {
 .BookingForm .options {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+@media screen and (max-width: 1900px) {
+  .Panel {
+    width: auto !important;
+  }
+  .Panel.one {
+    right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .Panel.one img {
+    position: static !important;
+    right: auto !important;
+  }
+  .Panel.two {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .Panel.two .specials {
+    width: 350px !important;
+  }
+}
+@media screen and (max-width: 1300px) {
+  header div {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 100vh;
+    background: #edefee;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    transition: 0.5s;
+    padding: 80px 30px 20px 120px;
+  }
+  header div.active {
+    right: 0;
+    top: 0;
+  }
+  header div {
+    padding: 10px 0;
+  }
+  header div a {
+    color: #333333;
+    font-size: smaller;
+  }
+  header .hamburger, header .close-hamburger {
+    line-height: 0.8;
+    display: initial;
+    z-index: 11;
+  }
 }/*# sourceMappingURL=App.css.map */

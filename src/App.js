@@ -9,6 +9,7 @@ import './App.css';
 import  Bokking from  "./components/pages/Booking/Booking"
 import  Underc from './components/pages/UnderConstruction/underConstruction'
 import  Main from "./components/pages/Home/Home"
+import Cmf from "./components/pages/Booking/ConfirmBooking"
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></link>
 
@@ -21,6 +22,8 @@ function App() {
       <Route path='/' Component={Main}/>
       <Route Component={Bokking} path='/booking'/>
       <Route Component={Underc} path='/Under'/>
+     
+      <Route Component={Cmf} path='/Cmfbooking'/>
   
      </Routes>
      </Layout>
