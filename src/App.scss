@@ -26,45 +26,116 @@ body{
     padding-right: 70px;
     width :100%;
 }
-header{
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 auto;  
+    li{
+        list-style-type: none;  
+        text-decoration: none;
+        color: #333333;
+        font-size: 24px;
+        text-align: center;
+        font-weight: 700;
+        list-style: none;
+    }
+    a {
+        text-decoration: none !important;
+            color: #333333 !important;
+            font-size: 24px !important;
+            text-align: center;
+            font-weight: 700;
+            list-style: none;
+    }
+    ul{
+    
+    }
+    a:hover{
+                 background-color: $primaryclr1;
+                cursor: pointer;
+                height: 40px;
+                color: white !important;
+                
+            }
+            a:active{
+                background-color: $primaryclr5;
+                color: white !important;
+            }
+    .logo-img {
+        width: 200px;
+    }
+    
+    .nav-menu {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-menu li {
+        padding: 0 15px;
+    }
+    
+    .nav-menu li a:hover {
+        color: #495e57;
+    }
+    
     .hamburger, .close-hamburger {
         display: none;
     }
     
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .logo{
-        height: 100px;
-        width :auto;
-
+    
+    
+    
+        @media screen and (max-width: 1024px) {
+        header {
+            width: 100%;
+            padding: 10px 30px;
+        }
+    
+        .logo-img {
+            width: 150px;
+        }
+    
+        .nav-menu {
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+            height: 100vh;
+            background: #edefee;
+            position: absolute;
+            top: 0;
+            right: -100%;
+            z-index: 10;
+            transition: 0.5s;
+            padding: 80px 30px 20px 120px;
+        }
+    
+        .nav-menu.active {
+            right: 0;
+            top: 0;
+        }
+    
+        .nav-menu li {
+            padding: 10px 0;
+        }
+    
+        .nav-menu li a {
+            color: #333333;
+            font-size: smaller;
+        }
+    
+        .hamburger, .close-hamburger {
+            line-height: 0.8;
+            display: initial;
+            z-index: 11;
+        }
     }
-
- a{
-    text-decoration: none;
-    color: #333333;
-    font-size: 24px;
-    text-align: center;
-    font-weight: 700;
-
- }
-   
-  div{
-    margin-left: auto;
-    a:hover{
-        background-color: $primaryclr1;
-        cursor: pointer;
-        height: 40px;
-        color: white;
-        
-    }
-    a:active{
-        background-color: $primaryclr5;
-        color: white;
-    }
-  }
 }
+
+
 .Panel{
     width: 1899px;
 }
@@ -267,8 +338,6 @@ header{
     }
    
  }
- 
-
 
 .Panel.four{
     .lgtext{
@@ -441,40 +510,185 @@ footer{
         }
     }
 }
-@media screen and (max-width: 1300px) {
-    header{
+@media screen and (max-width: 1400px) {
+   
+    .Panel.one{
         div{
-            flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-start;
-        height: 100vh;
-        background: #edefee;
-        position: absolute;
-        top: 0;
-        right: -100%;
-        z-index: 10;
-        transition: 0.5s;
-        padding: 80px 30px 20px 120px;
+            img{
+                width: 550px;
+                height:500px;
+                position: static;
+                margin-top: 200px;
+            }
         }
-        div.active{
-            right: 0;
-            top: 0;
+        
+    }
+}
+@media screen and (max-width: 1300px) {
+   
+    .Panel.one{
+        height: auto;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        div{
+            width: auto;
+            img{
+                width: 550px;
+                height:500px;
+                position: static;
+                margin-top:20px;
+                margin-bottom: 40px;
+                
+            }
         }
-    
-        div  {
-            padding: 10px 0;
+        .TextOne{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p{
+                width: 100% !important;
+                text-align: center;
+            }
+            .PrimaryBtn{
+                    margin-left: auto;
+                    margin-right: auto;
+            }
         }
-    
-        div  a {
-            color: #333333;
-            font-size: smaller;
-        }
-    
-        .hamburger, .close-hamburger {
-            line-height: 0.8;
-            display: initial;
-            z-index: 11;
+       
+    }
+    .Panel.two{
+        margin-top: 50px !important;
+       h3{
+        width: fit-content;
 
+       }
+       
+    }
+    .PrimaryBtn {
+     width: auto !important ;
+     float: inline-end;       
+     margin-left: auto;
+    }
+    footer{
+        .ftr{
+            flex-direction: column;
+        
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+            div:nth-child(1){
+                display: none;
+            }
+            li{
+                text-align: center;
+            }
+           div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column  ;
+           }
+           .lsftr{
+            p{
+                display: inline-block !important;
+            }
+           }
+
+           
+        }
+       
+    }
+
+}
+@media screen and (max-width: 800px) {
+    .Panel.four{
+        img{
+            width: 500px !important;
+            height: auto    ;
+            object-fit: cover;
         }
     }
+}
+@media screen and (max-width: 500px) {
+    .Panel.four{
+        img{
+            width: 300px !important;
+         
+        }
+    }
+}
+@media screen and (max-width: 800px)
+{ 
+  .BookingForm{
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    span{
+        text-align: center;
+        width: 400px;
+    }
+  }  
+}
+@media screen and (max-width: 392px){
+header{
+    justify-content: center;
+    .nav-menu {
+        padding: 0%;
+    }
+}
+.Panel{
+    padding: 0% !important;
+}
+.Panel.one{
+    .TextOne{
+        .lgtext{
+            font-size: 60px;
+        }
+        p{
+            padding: 10px;
+        }
+    }
+    div img{
+        width: 330px;
+       padding: 0%;
+    }
+}
+.PrimaryBtn{
+    margin: auto;
+}
+.Panel.two{
+    p{
+        padding: 10px;
+        width: fit-content;
+    }
+}
+.Panel.four{
+    div{
+        div{
+            margin: 0%;
+            div{
+                width: 100%;
+                padding: 10px;
+            }
+        }
+        margin: 0%;
+    }
+}
+footer{
+    .ftr{
+        padding: 0%;
+        div{
+            padding: 0%;
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
 }

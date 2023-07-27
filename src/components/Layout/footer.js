@@ -88,7 +88,7 @@ return(
           )}
               
               </div>
-            <div className="col">
+            <div className="col lsftr">
             <h3>CONNECT WITH US</h3>
             {socials.map((social,index)=>
                 <p key={index}style={{display:"inline"}}>
