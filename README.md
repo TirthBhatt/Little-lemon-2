@@ -1,7 +1,7 @@
 # Getting Started with Create React App
+ tirth bhatt
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
