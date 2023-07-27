@@ -51,9 +51,7 @@ header {
             font-weight: 700;
             list-style: none;
     }
-    ul{
-    
-    }
+  
     a:hover{
                  background-color: $primaryclr1;
                 cursor: pointer;
@@ -227,10 +225,7 @@ header {
     margin-top: 200px;
     padding-left: 200px;
     padding-right: 200px;
-    .content{
-
-    }
-  
+ 
         
         h3{
             color: #495e57;
@@ -486,9 +481,7 @@ footer{
     }
 }
 @media screen and (max-width: 1900px) {
-    .content{
-      
-    }
+   
     .Panel{
         width: auto!important;
     }
